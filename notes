@@ -1,0 +1,32 @@
+notes
+What is the model method for Routes? 
+
+"route is responsible for querying the model"
+Routes model method is a hook through which you can perform ajax requests (if you don't use ember-data)
+or for querying your store if you do use Ember-Data.
+BUT if you 
+
+
+Computed properties allow you to declare functions as properties, eg:
+
+App.Person = Ember.Object.extend({
+  firstName: null,
+  lastName: null,
+
+  fullName: function() {
+    return this.get('firstName') + ' ' + this.get('lastName');
+  }.property('firstName', 'lastName')
+});
+
+//in use:
+
+var ironMan = App.Person.create({
+  firstName: "Tony",
+  lastName:  "Stark"
+});
+
+ironMan.get('fullName') // "Tony Stark"
+
+
+Nested Routes for nested views, the nested templates need an outlet in the\
+parent view.

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<script type="text/x-handlebars" id="application">
+  <div class="main">
+    <h1>Hello World</h1>
+    {{#link-to "users"}} Go to the users page {{/link-to}}
+    // <p>{{#link-to "cacas"}} Go to the cacas page {{/link-to}}</p>
+    {{outlet}}
+  </div>
+</script>
+
+<script type="text/x-handlebars" id="users">
+  <ul class="users-listing">
+    {{#each user in controller}}
+      <li>{{#link-to "user" user}}
+        {{user.name}}
+        {{/link-to}}
+      <li>
+    {{else}}
+      <li>no users...:(</li>
+    {{/each}}
+  </ul>
+
+    {{outlet}}
+
+    <div>Users: {{usersCount}}</div>
+</script>
+
+<script type="text/x-handlebars" id="user">
+  <div class="user-profile">
+    <img {{bind-attr src="avatarUrl"}} alt="User's avatar" />
+    <h2>{{name}}</h2>
+    <span>{{email}}</span>
+    <p>{{bio}}</p>
+    <span>Created {{creationDate}}</span>
+  </div>
+  {{outlet}}
+</script>
+
+
+<script type="text/x-handlebars" id="cacas">
+  <ul class="users-listing">
+  {{#each caca in controller}}
+  <li> {{caca.name}} : {{caca.turdiness}} </li>
+  {{/each}}
+  </ul>
+</script>
+
+<!-- App Code     -->
+
+
+<!-- End App Code -->
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-v2.0.0.js"></script>
+  <script src="js/libs/ember-1.9.1.js"></script>
+  <script src="http://builds.emberjs.com/beta/ember-data.js"></script>
+  <script src="app.js"></script>
+  <!-- to activate the test runner, add the "?test" query string parameter -->
+  <script src="tests/runner.js"></script>
+</body>
+</html>
