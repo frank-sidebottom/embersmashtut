@@ -12,7 +12,6 @@
   <div class="main">
     <h1>Hello World</h1>
     {{#link-to "users"}} Go to the users page {{/link-to}}
-    // <p>{{#link-to "cacas"}} Go to the cacas page {{/link-to}}</p>
     {{outlet}}
   </div>
 </script>
@@ -46,13 +45,6 @@
 </script>
 
 
-<script type="text/x-handlebars" id="cacas">
-  <ul class="users-listing">
-  {{#each caca in controller}}
-  <li> {{caca.name}} : {{caca.turdiness}} </li>
-  {{/each}}
-  </ul>
-</script>
 
 <!-- App Code     -->
 

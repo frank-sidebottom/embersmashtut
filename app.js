@@ -35,30 +35,8 @@ App.User.FIXTURES = [{
 // END FIXTURE data--------------------------------------------------------------
 
 
-// Test data--------------------------------------------------------------
-App.Caca = DS.Model.extend({
-	name      : DS.attr(),
-	turdiness : DS.attr()
-});
-
-App.Caca.FIXTURES = [{
-	id: 1,
-	name: 'Billy',
-	turdiness: 'Maximum'
-}, {
-	id: 2,
-	name: 'Bob',
-	turdiness: 'Maximalism'
-}];
-
-
-// End Test data--------------------------------------------------------------
-
 // router initialization
 App.Router.map(function(){
-	    this.resource('cacas', function(){
-    	this.resource('caca', { path: '/:caca_id'});
-    });
     this.resource('users', function(){
         this.resource('user', { path:'/:user_id' }, function(){
             this.route('edit');
@@ -81,11 +59,6 @@ App.UsersRoute = Ember.Route.extend({
 	}
 });
 
-App.CacasRoute = Ember.Route.extend({
-	model: function(){
-		return this.store.find('caca');
-	}
-});
 
 
 // users array controller
@@ -98,6 +71,7 @@ App.UsersController = Em.ArrayController.extend({
     }.property('@each')
 });
 
+//It was unneccessary to add the following two code snippets, used as examples
 //User Route
 App.UserRoute = Ember.Route.extend({
 	model: function(params) {
