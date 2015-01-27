@@ -80,7 +80,20 @@ App.UserRoute = Ember.Route.extend({
 });
 
 //UserController
-App.UserController =Ember.ObjectController.extend();
+App.UserController = Ember.ObjectController.extend({
+  actions: {
+    edit: function(){
+      this.transitionToRoute('user.edit');
+    }
+  }
+});
+
+//Assign a model to the edit route
+App.UserEditRoute = Ember.Route.extend({
+	model: function() {
+		return this.modelFor('user');
+	}
+});
 
 
 

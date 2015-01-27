@@ -30,3 +30,6 @@ ironMan.get('fullName') // "Tony Stark"
 
 Nested Routes for nested views, the nested templates need an outlet in the\
 parent view.
+
+the modelFor method allows you to use the model of another route
+For example, to edit a user, whch belongs to the user route, from the userEdit route

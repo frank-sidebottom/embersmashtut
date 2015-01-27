@@ -35,14 +35,43 @@
 
 <script type="text/x-handlebars" id="user">
   <div class="user-profile">
+  <button {{action "edit"}}>Edit</button>
     <img {{bind-attr src="avatarUrl"}} alt="User's avatar" />
     <h2>{{name}}</h2>
     <span>{{email}}</span>
     <p>{{bio}}</p>
     <span>Created {{creationDate}}</span>
+    
   </div>
   {{outlet}}
+
 </script>
+
+    <!-- single user edit template - also used by the create route -->
+    <script type="text/x-handlebars" id="user/edit">
+        <div class="user-edit">
+            <div>
+                <label>Choose user avatar</label>
+                {{input value=avatarUrl}}
+            </div>
+            <div>
+                <label>User name</label>
+                {{input value=name}}
+            </div>
+            <div>
+                <label>User email</label>
+                {{input value=email}}
+            </div>
+            <div>
+                <label>User short bio</label>
+                {{textarea value=bio}}
+            </div>
+            <div>
+                <br/>
+                <button {{action "save"}}> ok </button>
+            </div>
+        </div>
+    </script>
 
 
 
