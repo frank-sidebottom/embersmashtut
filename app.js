@@ -84,6 +84,31 @@ App.UserController = Ember.ObjectController.extend({
   actions: {
     edit: function(){
       this.transitionToRoute('user.edit');
+    },
+    delete: function(){
+      this.toggleProperty('deleteMode');
+
+    },
+    cancelDelete: function(){
+      this.set('deleteMode', false);
+    },
+    confirmDelete: function(){
+      this.get('model').deleteRecord();
+      this.get('model').save();
+      this.transitionToRoute('user');
+      this.set('deleteMode', false);
+    }
+  }
+});
+
+App.UserEditController = Ember.ObjectController.extend({
+  actions: {
+    save: function(){
+      var user = this.get('model');
+      // this will tell Ember-Data to save/persist the new record
+      user.save();
+      // then transition to the current user
+      this.transitionToRoute('user', user);
     }
   }
 });
@@ -94,6 +119,8 @@ App.UserEditRoute = Ember.Route.extend({
 		return this.modelFor('user');
 	}
 });
+
+
 
 
 

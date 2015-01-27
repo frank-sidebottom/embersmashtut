@@ -36,6 +36,7 @@
 <script type="text/x-handlebars" id="user">
   <div class="user-profile">
   <button {{action "edit"}}>Edit</button>
+  <button {{action "delete"}}>Delete</button>
     <img {{bind-attr src="avatarUrl"}} alt="User's avatar" />
     <h2>{{name}}</h2>
     <span>{{email}}</span>
@@ -44,7 +45,13 @@
     
   </div>
   {{outlet}}
-
+  {{#if deleteMode}}
+  <div class="confirm-box">
+    <h4>Raally?</h4>
+    <button {{action "confirmDelete"}}> yes </button>
+    <button {{action "cancelDelete"}}> no </button>
+  </div>
+  {{/if}}
 </script>
 
     <!-- single user edit template - also used by the create route -->

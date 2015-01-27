@@ -33,3 +33,5 @@ parent view.
 
 the modelFor method allows you to use the model of another route
 For example, to edit a user, whch belongs to the user route, from the userEdit route
+
+WHAT IS THIS? this.transitionToRoute('user', user); //why two users?
